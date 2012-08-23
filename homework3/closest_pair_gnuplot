@@ -1,0 +1,3 @@
+f1(x) = a1*x*log(x) + b1
+fit f1(x) 'closest_pair_runtime.dat' using 1:2 via a1, b1
+plot 'closest_pair_runtime.dat' using 1:2, a1*x*log(x) + b1

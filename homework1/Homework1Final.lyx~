@@ -1,0 +1,792 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass hmcpset
+\begin_preamble
+% info for header block in upper right hand corner
+\name{Mark Watson}
+\class{CS4720}
+\assignment{Homework \#1}
+\duedate{09/12/2011}
+\end_preamble
+\options boxed, margin=1in
+\use_default_options false
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 12
+\spacing single
+\use_hyperref false
+\papersize letterpaper
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Note:
+\series default
+ The Name, class and date is specified in the document preamble of this
+ document (menu 
+\family sans
+Document\SpecialChar \menuseparator
+Settings\SpecialChar \menuseparator
+LaTeX
+\begin_inset space ~
+\end_inset
+
+Preamble
+\family default
+)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Problem
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+[Problem 1]
+\end_layout
+
+\end_inset
+
+ Sum the following series to obtain closed form solutions.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+(
+\shape italic
+a
+\shape default
+) The series: 
+\begin_inset Formula $1^{2}+(1^{2}+2^{2})+(1^{2}+2^{2}+3^{2})+\dots$
+\end_inset
+
+ to n terms.
+\end_layout
+
+\begin_layout Itemize
+(b) The series: 
+\begin_inset Formula $4+44+444+\dots$
+\end_inset
+
+ to n terms.
+\end_layout
+
+\begin_layout Itemize
+(c) The series: 
+\begin_inset Formula $1+4x+12x^{2}+32x^{3}+\dots$
+\end_inset
+
+ when 
+\begin_inset Formula $0<x<\frac{1}{2}$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Solution
+(a) Summations for 
+\begin_inset Formula $\sum_{k=1}^{n}k^{2}$
+\end_inset
+
+ and
+\begin_inset Formula $\sum_{k=1}^{n}k$
+\end_inset
+
+ where taken from page 470 of Levitin's book.
+\end_layout
+
+\begin_layout Solution
+\begin_inset Formula 
+\begin{eqnarray*}
+ & 1^{2}+(1^{2}+2^{2})+(1^{2}+2^{2}+3^{2})+\dots\\
+= & \sum_{k=1}^{1}k^{2}+\sum_{k=1}^{2}k^{2}+\sum_{k=1}^{3}k^{2}+\sum_{k=1}^{4}k^{2}+\dots\\
+= & \sum_{k=1}^{n}\sum_{j=1}^{k}j^{2}\\
+= & \sum_{k=1}^{n}[\frac{1}{6}(k(k+1)(2k+1))]\\
+= & \frac{1}{6}\sum_{k=1}^{n}[(k^{2}+k)(2k+1))]\\
+= & \frac{1}{6}\sum_{k=1}^{n}[2k^{3}+3k^{2}+k]\\
+= & \frac{1}{6}[2\sum_{k=1}^{n}k^{3}+3\sum_{k=1}^{n}k^{2}+\sum_{k=1}^{n}k]\\
+= & \frac{1}{6}[2(\sum_{k=1}^{n}k)^{2}+3\sum_{k=1}^{n}k^{2}+\sum_{k=1}^{n}k]\\
+= & \frac{1}{6}[2(\frac{n^{2}(n+1)^{2}}{4})+\frac{3}{6}(n(n+1)(2n+1))+\frac{1}{2}n(n+1)]\\
+= & \frac{1}{6}\left(\frac{1}{2}n(1+n)+\frac{1}{2}n^{2}(1+n)^{2}+\frac{1}{2}n(1+n)(1+2n)\right)\\
+= & \frac{1}{12}n(1+n)^{2}(2+n)
+\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Newpage newpage
+\end_inset
+
+(b) Summation formula 5 was used from Levitin's book pg.
+ 470 to solve summations in the form 
+\begin_inset Formula $\sum_{k=0}^{n}10^{k}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Solution
+\begin_inset Formula 
+\begin{eqnarray*}
+ & 4+44+444+\dots\\
+= & 4(1+11+111+\dots)\\
+= & 4\sum_{k=1}^{n}\sum_{j=1}^{k}10^{(j-1)}\\
+= & 4\sum_{k=1}^{n}\sum_{j=0}^{k-1}10^{j}\\
+= & 4\sum_{k=1}^{n}\frac{10^{(k-1)+1}-1}{10-1}\\
+= & \frac{4}{9}\sum_{k=1}^{n}10^{k}-1\\
+= & \frac{4}{9}(\sum_{k=1}^{n}10^{k}-\sum_{k=1}^{n}1)\\
+= & \frac{4}{9}(\sum_{k=1}^{n}10^{k}-n)\\
+= & \frac{4}{9}((\sum_{k=0}^{n}10^{k})-1-n)\\
+= & \frac{4}{9}((\frac{10^{n+1}-1}{10-1})-1-n)\\
+= & \frac{4}{9}(\frac{10^{n+1}-1}{9}-1-n)\\
+= & \frac{4}{9}(\frac{10^{n+1}-1-9-9n}{9})\\
+= & \frac{4}{81}(10^{n+1}-10-9n)\\
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Solution
+\begin_inset Newpage newpage
+\end_inset
+
+(c) The series can be expressed as summation.
+\end_layout
+
+\begin_layout Solution
+\begin_inset Formula 
+\begin{eqnarray*}
+ & 1+4x+12x^{2}+32x^{3}+\dots+n2^{n-1}x^{n-1} & when\:0<x<\frac{1}{2}\\
+= & \sum_{k=1}^{n}k2^{k-1}x^{k-1}\\
+= & \sum_{k=1}^{n}k(2x)^{k-1}\\
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Solution
+Subtracting 
+\begin_inset Formula $(2x)$
+\end_inset
+
+ times series from the original series to find the sum:
+\end_layout
+
+\begin_layout Solution
+\begin_inset Formula 
+\begin{eqnarray*}
+S & = & 1+4x+12x^{2}+32x^{3}+80x^{4}+\dots\\
+-(2x)S & = & \qquad2x+\;8x^{2}+24x^{3}+64x^{4}+\dots\\
+S(1-2x) & = & 1+2x+\;4x^{2}+\;8x^{3}+16x^{4}+\dots
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Solution
+Which we can represent as the following sum (we make use of equation 5 from
+ Levitin's book on page 470 to solve this summation):
+\end_layout
+
+\begin_layout Solution
+\begin_inset Formula 
+\begin{eqnarray*}
+S(1-2x) & = & \sum_{k=0}^{n}2^{k}x^{k}\\
+S(1-2x) & = & \sum_{k=0}^{n}(2x)^{k}\\
+S(1-2x) & = & \frac{(2x)^{n+1}-1}{(2x)-1}\\
+S & = & \frac{(2x)^{n+1}-1}{(1-2x)(2x-1)}\\
+S & = & \frac{(2x)^{n+1}-1}{-(2x-1)^{2}}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Solution
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Problem
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+[Problem 2]
+\end_layout
+
+\end_inset
+
+ Show the following by induction: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+(a) Show that 
+\begin_inset Formula $5{}^{2n}+3n-1$
+\end_inset
+
+is divisible by 9 for any 
+\begin_inset Formula $n\geq1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+(b) Show that 
+\begin_inset Formula $n!>3^{n}$
+\end_inset
+
+ for 
+\begin_inset Formula $n\geq7,n\in N$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Solution
+(a) We can see the hypothesis holds for the 
+\emph on
+base case
+\emph default
+ of 1: 
+\begin_inset Formula $5^{2(1)}+3(1)-1=27$
+\end_inset
+
+, which is divisible by 9.
+ To show the 
+\emph on
+induction step
+\emph default
+, Let 
+\begin_inset Formula $f(n)=5^{2n}+3n-1$
+\end_inset
+
+, and assume that 
+\begin_inset Formula $f(k)$
+\end_inset
+
+ is divisible by 9.
+ Then, we need to show that 
+\begin_inset Formula $f(k+1)-f(k)$
+\end_inset
+
+ is divisible by 9 to show that 
+\begin_inset Formula $f(k+1)$
+\end_inset
+
+ is divisible by 9.
+\end_layout
+
+\begin_layout Solution
+\begin_inset Formula 
+\begin{eqnarray*}
+ & [5^{2(k+1)}+3(k+1)-1]-(5^{2k}+3k-1)\\
+= & 5^{2k}5^{2}+3-5^{2k}\\
+= & 5^{2k}(5^{2}-1)+3\\
+= & 25^{k}(24)+3
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Solution
+Now we need to show that 
+\begin_inset Formula $25^{k}24+3$
+\end_inset
+
+ is divisible by 9 to show that 
+\begin_inset Formula $f(k+1)$
+\end_inset
+
+ is divisible by 9, and that our original hypothesis holds.
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+Hypothesis
+\emph default
+: 
+\begin_inset Formula $25^{n}24+3$
+\end_inset
+
+ is divisible by 9 for all 
+\begin_inset Formula $n\geq1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+Base case
+\emph default
+: 
+\begin_inset Formula $25^{1}24+3=603$
+\end_inset
+
+, which is divisible by 9.
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+Induction step
+\emph default
+: Assume that 
+\begin_inset Formula $25^{k}24+3$
+\end_inset
+
+ is divisible by 9.
+ Then: 
+\end_layout
+
+\begin_layout Solution
+\begin_inset Formula 
+\begin{eqnarray*}
+ & (25^{k+1}24+3)-(25^{k}24+3)\\
+= & 25^{k+1}24-25^{k}(24)\\
+= & 25^{k}(25)(24)-25^{k}(24)\\
+= & 24(25^{k})(25-1)\\
+= & 25^{k}(576)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Solution
+Since 576 is divisible by 9, 
+\begin_inset Formula $25^{n}24+3$
+\end_inset
+
+ is divisible by 9 for all 
+\begin_inset Formula $n\geq1$
+\end_inset
+
+, by induction.
+\end_layout
+
+\begin_layout Solution
+Therefore, 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+
+\begin_inset Formula $5^{2n}+3n-1$
+\end_inset
+
+is divisible by 9 for all 
+\begin_inset Formula $n\geq1$
+\end_inset
+
+ by induction.
+\end_layout
+
+\begin_layout Solution
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Solution
+(b) 
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+Hypothesis
+\emph default
+: 
+\begin_inset Formula $n!>3^{n}$
+\end_inset
+
+ for 
+\begin_inset Formula $n\geq7,\: n\in N$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+Base case
+\emph default
+: 
+\begin_inset Formula $7!>3^{7}=5040>2187$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+Induction step
+\emph default
+: If 
+\begin_inset Formula $k!>3^{k}$
+\end_inset
+
+and 
+\begin_inset Formula $k\geq7$
+\end_inset
+
+, then we can show that 
+\begin_inset Formula $(k+1)!>3^{k+1}$
+\end_inset
+
+ also holds: 
+\begin_inset Formula $(k+1)!=k!(k+1)>3^{k}(k+1)$
+\end_inset
+
+ (since 
+\begin_inset Formula $k!>3^{k}$
+\end_inset
+
+).
+ Next, 
+\begin_inset Formula $3^{k}(k+1)>3^{k}3=3^{k+1}$
+\end_inset
+
+, since 
+\begin_inset Formula $k+1\geq8>3$
+\end_inset
+
+ (
+\begin_inset Formula $k>7$
+\end_inset
+
+).
+ Therefore, 
+\begin_inset Formula $(k+1)!>3^{k+1}$
+\end_inset
+
+, and so our hypothesis holds true by induction.
+\end_layout
+
+\begin_layout Problem
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+[Problem 3]
+\end_layout
+
+\end_inset
+
+ Sequential Search Algorithm
+\end_layout
+
+\begin_layout Solution
+The sequential search algorithm is as follows.
+ A is the list being searched, and x is the item we're looking for.
+\end_layout
+
+\begin_layout LyX-Code
+def sequential_search(A, x):
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+for k=1 to n do
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+if A[k] == x then
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+return k
+\end_layout
+
+\end_deeper
+\begin_layout LyX-Code
+endif
+\end_layout
+
+\end_deeper
+\begin_layout LyX-Code
+endfor
+\end_layout
+
+\begin_layout LyX-Code
+return 0
+\end_layout
+
+\end_deeper
+\begin_layout Solution
+We can analyze the algorithm's best, worst, and average cases using simple
+ summations and assuming each line of code takes 
+\begin_inset Quotes eld
+\end_inset
+
+1
+\begin_inset Quotes erd
+\end_inset
+
+ time unit to run.
+\end_layout
+
+\begin_layout Solution
+
+\emph on
+Best case: 
+\emph default
+In the best case, x is the first element of the list.
+ The run time in this case would be: 
+\begin_inset Formula $3$
+\end_inset
+
+ time units, or 
+\begin_inset Formula $O(1)$
+\end_inset
+
+.
+ The best case scenario runs in constant time.
+\end_layout
+
+\begin_layout Solution
+
+\emph on
+Worst case: 
+\emph default
+In the worst case, x is the last element of the list.
+ The run time in this would be: 
+\begin_inset Formula $[\sum_{k=1}^{n}4]+1$
+\end_inset
+
+, assuming that each loop takes four time units, and one additional time
+ unit is needed to return the element.
+ Solving the sum we get: 
+\begin_inset Formula $4n+1$
+\end_inset
+
+, or 
+\begin_inset Formula $O(n)$
+\end_inset
+
+.
+ The worst scenario runs in linear time.
+\end_layout
+
+\begin_layout Solution
+
+\emph on
+Average case:
+\emph default
+ In the average case we assume that the list is ordered in some normal distribut
+ion so that an element has an equal probability of being in any part of
+ the list.
+ The run time for this situation would be: 
+\begin_inset Formula $[\sum_{k=1}^{n/2}4]+1$
+\end_inset
+
+, and solving we get: 
+\begin_inset Formula $\frac{4n}{2}+1=2n+1$
+\end_inset
+
+, which is still 
+\begin_inset Formula $O(n)$
+\end_inset
+
+.
+ The average case also runs in linear time.
+\end_layout
+
+\begin_layout Problem
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+[Problem 4]
+\end_layout
+
+\end_inset
+
+ Bubble Sort Algorithm.
+\end_layout
+
+\begin_layout Solution
+The pseudo-code for the bubble sort algorithm is as follows, letting A be
+ the list to sort, and n be the length of the list.
+\end_layout
+
+\begin_layout LyX-Code
+for k=1 to n do
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+for j=n down to k+1 do
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+if A[j] < A[j-1] then
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+swap (A[j], A[j-1])
+\end_layout
+
+\end_deeper
+\begin_layout LyX-Code
+endif
+\end_layout
+
+\end_deeper
+\begin_layout LyX-Code
+endfor
+\end_layout
+
+\end_deeper
+\begin_layout LyX-Code
+endfor
+\end_layout
+
+\begin_layout Solution
+The best, worst, and average cases are all the same, since the code must
+ iterate through the entire list no matter what.
+ There do exist optimizations on the algorithm that break out of the inner
+ loop, however, the algorithm detailed above is the plain vanila one.
+ We can sum up the time to run the algorithm like so (assuming a constant
+ time for the code that's run inside the loop: 
+\begin_inset Formula $\sum_{k=1}^{n-1}k=\frac{1}{2}((n-1)(n-1+1))=\frac{1}{2}(n-1)n=\frac{1}{2}(n^{2}-n)$
+\end_inset
+
+, or 
+\begin_inset Formula $O(n^{2})$
+\end_inset
+
+.
+ So it runs in exponential time.
+\end_layout
+
+\begin_layout Solution
+After running an implementation of the algorithm on lists of random numbers
+ and timing the result, the following graph can be generated.
+\end_layout
+
+\begin_layout Solution
+\begin_inset Graphics
+	filename BubbleSortRunTimeGraphWithFit.png
+	display false
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Solution
+On the y-axis is the computing time needed to sort a given list, and on
+ the x-axis is the length of list being sorted.
+ After running a regression in excel to fit a polynomial to the time taken
+ to sort, we can see that the time takes approximatly 
+\begin_inset Formula $n^{2}+0.003n$
+\end_inset
+
+ to sort the list.
+ The exact time taken doesn't match the theoretical analisys exactly, however
+ the order is the same, both showing that the algorithm takes 
+\begin_inset Formula $O(n^{2})$
+\end_inset
+
+, or quadratic time to complete.
+\end_layout
+
+\end_body
+\end_document

@@ -1,0 +1,1079 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass hmcpset
+\begin_preamble
+% info for header block in upper right hand corner
+\name{Mark Watson}
+\class{CS 4720}
+\assignment{Homework \#3}
+\duedate{11/09/2011}
+\end_preamble
+\options boxed, margin=1in
+\use_default_options false
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 12
+\spacing single
+\use_hyperref false
+\papersize letterpaper
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Problem
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+[Problem 1]
+\end_layout
+
+\end_inset
+
+ Closest-Pair Problem
+\end_layout
+
+\begin_layout Solution
+For the closest pair problem I used a simple divide and conquer algorithm
+ that took 
+\begin_inset Formula $\theta(nlogn)$
+\end_inset
+
+ time complexity.
+ The algorithm is recursive, and works in two stages.
+ In the first stage it splits up the points into two parts and recurses
+ on each half.
+ In the second stage the code merges the two halves to combine the points
+ back into a single solution.
+\end_layout
+
+\begin_layout Solution
+The pseudo-code is as follows.
+ 
+\begin_inset Quotes eld
+\end_inset
+
+by_x
+\begin_inset Quotes erd
+\end_inset
+
+ and 
+\begin_inset Quotes eld
+\end_inset
+
+by_y
+\begin_inset Quotes erd
+\end_inset
+
+ are the list of points sorted by the x-axis and y-axis, respectively.
+ The time to sort take 
+\begin_inset Formula $\theta(nlogn)$
+\end_inset
+
+ time, so the final algorithm won't be faster than that.
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+closest_pair(by_x, by_y):
+\end_layout
+
+\begin_layout LyX-Code
+    if by_x.length == 1:
+\end_layout
+
+\begin_layout LyX-Code
+        return null
+\end_layout
+
+\begin_layout LyX-Code
+    else if by_x.length == 2:
+\end_layout
+
+\begin_layout LyX-Code
+        return new pair(by_x[0], by_x[1])
+\end_layout
+
+\begin_layout LyX-Code
+    set left_by_x and left_by_y to the first n/2 elements 
+\end_layout
+
+\begin_layout LyX-Code
+        of by_x and by_y respectively
+\end_layout
+
+\begin_layout LyX-Code
+    set right_by_x and right_by_y to the last n/2 elements 
+\end_layout
+
+\begin_layout LyX-Code
+        of by_x and by_y respectively
+\end_layout
+
+\begin_layout LyX-Code
+    l_pair = closest_pair(left_by_x, left_by_y)
+\end_layout
+
+\begin_layout LyX-Code
+    r_pair = closest_pair(right_by_x, right_by_y)
+\end_layout
+
+\begin_layout LyX-Code
+    l_dist = euclidean_distance(l_pair)
+\end_layout
+
+\begin_layout LyX-Code
+    r_dist = euclidean_distance(r_pair)
+\end_layout
+
+\begin_layout LyX-Code
+    if l_dist < r_dist:
+\end_layout
+
+\begin_layout LyX-Code
+        dist = l_dist
+\end_layout
+
+\begin_layout LyX-Code
+        closest = l_pair
+\end_layout
+
+\begin_layout LyX-Code
+    else:
+\end_layout
+
+\begin_layout LyX-Code
+        dist = r_dist
+\end_layout
+
+\begin_layout LyX-Code
+        closest = r_pair
+\end_layout
+
+\begin_layout LyX-Code
+    create y_strip containing all the values in by_y that
+\end_layout
+
+\begin_layout LyX-Code
+        are within 'dist' distance
+\end_layout
+
+\begin_layout LyX-Code
+    for i = 0 to y_strip.length:
+\end_layout
+
+\begin_layout LyX-Code
+        for j = i to i + 15:
+\end_layout
+
+\begin_layout LyX-Code
+            if distance(y_strip[i], y_strip[j]) < dist:
+\end_layout
+
+\begin_layout LyX-Code
+                dist = distance(y_strip[i], y_strip[j])
+\end_layout
+
+\begin_layout LyX-Code
+                closest = new pair(y_strip[i], y_strip[j])
+\end_layout
+
+\begin_layout LyX-Code
+    return closest
+\end_layout
+
+\end_deeper
+\begin_layout Solution
+The time complexity of the algorithm is 
+\begin_inset Formula $\theta(nlogn)$
+\end_inset
+
+.
+ The process for obtaining this involves several pieces.
+ The first piece is sorting the points by x and y, which takes 
+\begin_inset Formula $2\theta(nlogn)$
+\end_inset
+
+ using an efficient sorting algorithm.
+ The next part is the time to run the function, which can be found using
+ a recurrence.
+\end_layout
+
+\begin_layout Solution
+\begin_inset Formula 
+\begin{eqnarray*}
+T(N) & = & 2T(\frac{N}{2})+6N\\
+ & \in & \theta(nlog(n))
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Solution
+Above, the recurrence is solved using the master theorem.
+ The numbers have to be iterated over 
+\begin_inset Quotes eld
+\end_inset
+
+6
+\begin_inset Quotes erd
+\end_inset
+
+ times for each step, which is where the 6N comes from.
+ Since a linear function is added each time, we can get a time complexity
+ on par with sorting, so the overall time complexity is 
+\begin_inset Formula $\theta(nlog(n))$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Solution
+\begin_inset Graphics
+	filename closest_pair_graph.png
+	lyxscale 50
+	width 90text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Solution
+The graph shows the algorithm being run for inputs up to 300,000.
+ The function 
+\begin_inset Formula $nlog(n)$
+\end_inset
+
+ is fitted to the graph to show the growth of the function.
+ In the smaller instances of n, the function's growth rate almost seems
+ more linear.
+ Since 
+\begin_inset Formula $nlog(n)$
+\end_inset
+
+ grows slightly faster than linear this makes sense.
+\end_layout
+
+\begin_layout Solution
+The following two plots show the closest pair for 5 points and 50 points.
+\end_layout
+
+\begin_layout Solution
+\begin_inset Graphics
+	filename closest_pair_5_pts.png
+	lyxscale 50
+	width 70text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Solution
+\begin_inset Graphics
+	filename closest_pair_50_pts.png
+	lyxscale 50
+	width 70text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Problem
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+[Problem 2]
+\end_layout
+
+\end_inset
+
+ Counting Inversion Problem
+\end_layout
+
+\begin_layout Solution
+(a) A brute force solution to the counting inversion problem simply visits
+ each element in order, and then iterates over all the succeeding elements
+ and checks which ones to swap by comparing them.
+ The total number of swaps is added up and returned in the process.
+\end_layout
+
+\begin_layout Solution
+To measure the time complexity we can use summations over some constant,
+ C, representing the time to compare and swap two numbers:
+\end_layout
+
+\begin_layout Solution
+\begin_inset Formula 
+\begin{eqnarray*}
+T(n) & = & \sum_{i=0}^{n}\sum_{j=i}^{n}C\\
+ & = & \sum_{i=0}^{n}(n-i+C)\\
+ & = & C+n^{2}-\sum_{i=0}^{n}i\\
+ & = & C+n^{2}-\frac{1}{2}(n+1)n\\
+ & = & n^{2}-\frac{1}{2}n^{2}+\frac{1}{2}n\\
+ & = & \frac{1}{2}n^{2}+\frac{1}{2}n\\
+ & \in & \theta(n^{2})
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Solution
+This makes sense since it is the same time complexity as the brute force
+ sorting algorithms like bubble sort and selection sort.
+ It's doing the same thing as a brute force sorting algorithm by looping
+ through all the elements for each element in the list.
+\end_layout
+
+\begin_layout Solution
+(b) For a divide and conquer algorithm I used a merge-and-count algorithm
+ which was essentially the same as the merge-sort algorithm for sorting,
+ but instead counts swaps that need to be made.
+ Like most divide and conquer algorithms it consisted of two parts.
+ The first part splits the list up into two parts recursively, and the second
+ part merges the list back together while counting the number of swaps required.
+\end_layout
+
+\begin_layout Solution
+The pseudo code for the algorithm is as follows:
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+function sort_and_count(L): // l is the list to work with
+\end_layout
+
+\begin_layout LyX-Code
+    if L's length is 1:
+\end_layout
+
+\begin_layout LyX-Code
+        return 0, L
+\end_layout
+
+\begin_layout LyX-Code
+    else:
+\end_layout
+
+\begin_layout LyX-Code
+        // divide L into a and b
+\end_layout
+
+\begin_layout LyX-Code
+        a = first half of L
+\end_layout
+
+\begin_layout LyX-Code
+        b = second half of L
+\end_layout
+
+\begin_layout LyX-Code
+        count_a, a = sort_and_count(a)
+\end_layout
+
+\begin_layout LyX-Code
+        count_b, b = sort_and_count(b)
+\end_layout
+
+\begin_layout LyX-Code
+        count, L = merge_and_count(a, b)
+\end_layout
+
+\begin_layout LyX-Code
+        // return the count and the list.
+\end_layout
+
+\begin_layout LyX-Code
+        return count_a + count_b + count, L
+\end_layout
+
+\begin_layout LyX-Code
+function merge_and_count(a, b): // a and b are two lists
+\end_layout
+
+\begin_layout LyX-Code
+    initialize i and j to 0
+\end_layout
+
+\begin_layout LyX-Code
+    while i < length of a and j < length of b:
+\end_layout
+
+\begin_layout LyX-Code
+        append the minimum of a[i] and b[j] onto a new list, "c"
+\end_layout
+
+\begin_layout LyX-Code
+        if b[j] < a[i]:
+\end_layout
+
+\begin_layout LyX-Code
+            count += length of a - i
+\end_layout
+
+\begin_layout LyX-Code
+            j++
+\end_layout
+
+\begin_layout LyX-Code
+        else:
+\end_layout
+
+\begin_layout LyX-Code
+            i++
+\end_layout
+
+\begin_layout LyX-Code
+    add anything left at the end of a or b onto c
+\end_layout
+
+\begin_layout LyX-Code
+    return count, c
+\end_layout
+
+\end_deeper
+\begin_layout Solution
+This code can be analyzed using a recurrence relation to find out the time
+ complexity.
+ We can use the master theorem to find out the time complexity.
+\end_layout
+
+\begin_layout Solution
+\begin_inset Formula 
+\begin{eqnarray*}
+T(n)= & 2T(n/2)+n\\
+\in & \theta(nlog(n))
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Solution
+The 
+\begin_inset Formula $2T(n/2)$
+\end_inset
+
+ part is for the two recursive calls that split the elements in half.
+ The 
+\begin_inset Quotes eld
+\end_inset
+
+
+\begin_inset Formula $n$
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+ part is how long the 
+\begin_inset Quotes eld
+\end_inset
+
+merge_and_count
+\begin_inset Quotes erd
+\end_inset
+
+ function takes, assuming the constant time for each iteration to be one,
+ for simplicity.
+\end_layout
+
+\begin_layout Solution
+The algorithm run time compares to the theoretical results.
+ Below is a graph of the run time for increasing values of n fitted to an
+ 
+\begin_inset Formula $nlog(n)$
+\end_inset
+
+ function.
+\end_layout
+
+\begin_layout Solution
+\begin_inset Graphics
+	filename counting_inversion_graph.png
+	lyxscale 50
+	width 90text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Solution
+The runtime fits to the 
+\begin_inset Formula $nlog(n)$
+\end_inset
+
+ function fairly well, and shows the algorithm performing quickly.
+\end_layout
+
+\begin_layout Solution
+A few trace runs of the algorithm are shown below.
+ The python implementation here finds the actual swaps required using brute
+ force, and then verifies the number found using brute force by also using
+ the divide and conquer algorithm to show the number of swaps expected.
+ Using two different algorithms helps to ensure they're implemented correctly,
+ and is needed for verification since the merge and count algorithm doesn't
+ show which swaps are needed.
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+$ python counting_inversion.py counting_inversion_tests/simple
+\end_layout
+
+\begin_layout LyX-Code
+Sequence: <2, 4, 1, 3, 5>
+\end_layout
+
+\begin_layout LyX-Code
+Swaps (found with brute force):
+\end_layout
+
+\begin_layout LyX-Code
+Swap: (2, 1)
+\end_layout
+
+\begin_layout LyX-Code
+Swap: (4, 2)
+\end_layout
+
+\begin_layout LyX-Code
+Swap: (4, 3)
+\end_layout
+
+\begin_layout LyX-Code
+# Swaps (Found with divide and conquer): 3
+\end_layout
+
+\begin_layout LyX-Code
+$ python counting_inversion.py counting_inversion_tests/ordered
+\end_layout
+
+\begin_layout LyX-Code
+Sequence: <1, 2, 3, 4>
+\end_layout
+
+\begin_layout LyX-Code
+Swaps (found with brute force):
+\end_layout
+
+\begin_layout LyX-Code
+# Swaps (Found with divide and conquer): 0
+\end_layout
+
+\begin_layout LyX-Code
+$ python counting_inversion.py counting_inversion_tests/inverted
+\end_layout
+
+\begin_layout LyX-Code
+Sequence: <4, 3, 2, 1>
+\end_layout
+
+\begin_layout LyX-Code
+Swaps (found with brute force):
+\end_layout
+
+\begin_layout LyX-Code
+Swap: (4, 3)
+\end_layout
+
+\begin_layout LyX-Code
+Swap: (3, 2)
+\end_layout
+
+\begin_layout LyX-Code
+Swap: (2, 1)
+\end_layout
+
+\begin_layout LyX-Code
+Swap: (4, 3)
+\end_layout
+
+\begin_layout LyX-Code
+Swap: (3, 2)
+\end_layout
+
+\begin_layout LyX-Code
+Swap: (4, 3)
+\end_layout
+
+\begin_layout LyX-Code
+# Swaps (Found with divide and conquer): 6
+\end_layout
+
+\end_deeper
+\begin_layout Problem
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+[Problem 3]
+\end_layout
+
+\end_inset
+
+ Convex Hull Problem
+\end_layout
+
+\begin_layout Solution
+The first algorithm for the convex hull problem I implemented was the 
+\emph on
+gift-wrapping
+\emph default
+ algorithm, aka the Jarvis march algorithm.
+ It has a theoretical time complexity of 
+\begin_inset Formula $\theta(nh)$
+\end_inset
+
+, where n is the number of total points, and h is the number of points on
+ the hull.
+ In the worst case situation all the points are on the hull, so the worst
+ case time complexity is 
+\begin_inset Formula $O(n^{2})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Solution
+The pseudo code I used is as follows:
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+function gift_wrap(P):
+\end_layout
+
+\begin_layout LyX-Code
+    H = new empty list
+\end_layout
+
+\begin_layout LyX-Code
+    n = length of P
+\end_layout
+
+\begin_layout LyX-Code
+    
+\end_layout
+
+\begin_layout LyX-Code
+    // find the leftmost point
+\end_layout
+
+\begin_layout LyX-Code
+    point_on_hull = leftmost point in P
+\end_layout
+
+\begin_layout LyX-Code
+    do:
+\end_layout
+
+\begin_layout LyX-Code
+        append point_on_hull to list H
+\end_layout
+
+\begin_layout LyX-Code
+        endpoint = P[0]
+\end_layout
+
+\begin_layout LyX-Code
+        for j=1 to n-1: // skip the first element
+\end_layout
+
+\begin_layout LyX-Code
+            if endpoint == point_on_hull
+\end_layout
+
+\begin_layout LyX-Code
+               or IsLeftOf(points[j], point_on_hull, endpoint) then
+\end_layout
+
+\begin_layout LyX-Code
+                endpoint = points[j]
+\end_layout
+
+\begin_layout LyX-Code
+            endif
+\end_layout
+
+\begin_layout LyX-Code
+        point_on_hull = endpoint
+\end_layout
+
+\begin_layout LyX-Code
+    while endpoint != hull[0]
+\end_layout
+
+\begin_layout LyX-Code
+    return hull
+\end_layout
+
+\end_deeper
+\begin_layout Solution
+The algorithm requires a function that can check if a point is to the left
+ of the line through two other points.
+ It's implementation is simple and just uses the determinant to find out
+ if the area of a triangle made by the three points is negative or positive.
+ The time complexity of the pseudo code above can be calculated as follows:
+\end_layout
+
+\begin_layout Solution
+\begin_inset Formula 
+\begin{eqnarray*}
+T(n)= & \sum_{i=0}^{n-1}C+\sum_{i=0}^{h}\sum_{j=1}^{n-1}D\\
+= & (n-1)C+\sum_{i=0}^{h}CDn\\
+= & Cn-C+Dnh\\
+\in & \theta(nh)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Solution
+The first summation is for the time to find the leftmost point, and then
+ the last two summations are the time to loop over all the points for each
+ point on the hull.
+\end_layout
+
+\begin_layout Solution
+To compare the theoretical to the actual run time we can hold 
+\begin_inset Quotes eld
+\end_inset
+
+h
+\begin_inset Quotes erd
+\end_inset
+
+ constant and then measure the time taken to run for increasing values of
+ n.
+ When 
+\begin_inset Quotes eld
+\end_inset
+
+h
+\begin_inset Quotes erd
+\end_inset
+
+ is constant the growth rate of 
+\begin_inset Quotes eld
+\end_inset
+
+n
+\begin_inset Quotes erd
+\end_inset
+
+ should be linear, since 
+\begin_inset Formula $\theta(nh)=h\theta(n)=\theta(n)$
+\end_inset
+
+ if h is constant.
+ To set 
+\begin_inset Quotes eld
+\end_inset
+
+h
+\begin_inset Quotes erd
+\end_inset
+
+ constant we'll simply select some points that form a hull and then randomly
+ generate points within the hull.
+ An example of such a situation is below.
+\end_layout
+
+\begin_layout Solution
+\begin_inset Graphics
+	filename convex_hull_15_points.png
+	lyxscale 50
+	width 70text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Solution
+We then keep putting more and more randomly generated points in the hull
+ and graph the time to find the closest pair over time.
+ The time taken to run nicely fits a linear function, showing that the theoretic
+al time analysis is correct.
+\end_layout
+
+\begin_layout Solution
+\begin_inset Graphics
+	filename convex_hull_gift_wrap_fixed_h_graph.png
+	lyxscale 50
+	width 90text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Solution
+A couple other interesting convex hulls are plotted below.
+ They were all found with the gift wrapping algorithm.
+\end_layout
+
+\begin_layout Solution
+\begin_inset Graphics
+	filename convex_hull_interesting_gift_wrapping.png
+	lyxscale 50
+	width 70text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Solution
+\begin_inset Graphics
+	filename convex_hull_large_pts_gift_wrapping.png
+	lyxscale 50
+	width 70text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Solution
+Another algorithm I implemented for the convex hull problem was a brute
+ force algorithm.
+ This proved to be useful for verifying my other algorithms, although the
+ time complexity was too large to run on very big inputs.
+ The algorithm involves finding each line between a pair of points and finding
+ out if all the other points are on one side of the line.
+ If all the points are on one side of the line then it's in the convex hull.
+ The pseudo code for the algorithm is as follows:
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+function convex_hull(P):
+\end_layout
+
+\begin_layout LyX-Code
+    set n to length of P
+\end_layout
+
+\begin_layout LyX-Code
+    hull = new empty list
+\end_layout
+
+\begin_layout LyX-Code
+    for i=0 to n-1:
+\end_layout
+
+\begin_layout LyX-Code
+        for j=0 to n-1:
+\end_layout
+
+\begin_layout LyX-Code
+            right = false
+\end_layout
+
+\begin_layout LyX-Code
+            left = false
+\end_layout
+
+\begin_layout LyX-Code
+            colinear = false
+\end_layout
+
+\begin_layout LyX-Code
+            for k=0 to n-1:
+\end_layout
+
+\begin_layout LyX-Code
+                if P[k] != P[i] and P[k] != P[j]:
+\end_layout
+
+\begin_layout LyX-Code
+                    if P[k] is to the left of P[i] and P[j]:
+\end_layout
+
+\begin_layout LyX-Code
+                        left = true
+\end_layout
+
+\begin_layout LyX-Code
+                    if P[k] is to the right of P[i] and P[j]:
+\end_layout
+
+\begin_layout LyX-Code
+                        right = true
+\end_layout
+
+\begin_layout LyX-Code
+                    if P[k] is colinear to P[i] and P[j]:
+\end_layout
+
+\begin_layout LyX-Code
+                        colinear = true
+\end_layout
+
+\begin_layout LyX-Code
+            
+\end_layout
+
+\begin_layout LyX-Code
+            if (right and not left and not colinear)
+\end_layout
+
+\begin_layout LyX-Code
+                or (left and not right and not colinear)
+\end_layout
+
+\begin_layout LyX-Code
+                or (colinear and not right and not left) then
+\end_layout
+
+\begin_layout LyX-Code
+                    append (points[i], points[j]) to hull
+\end_layout
+
+\begin_layout LyX-Code
+            endif
+\end_layout
+
+\begin_layout LyX-Code
+    return hull
+\end_layout
+
+\end_deeper
+\begin_layout Solution
+The time analysis for this algorithm is:
+\end_layout
+
+\begin_layout Solution
+\begin_inset Formula 
+\begin{eqnarray*}
+T(n)= & \sum_{i=01}^{n}\sum_{j=1}^{n}(C+\sum_{k=1}^{n}D)\\
+= & \sum_{i=01}^{n}\sum_{j=1}^{n}(C+Dn)\\
+= & \sum_{i=01}^{n}(Cn+Dn^{2})\\
+= & (Cn^{2}+Dn^{3})\\
+\in & \theta(n^{3})
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Solution
+This matches with the actual time the algorithm took to run:
+\end_layout
+
+\begin_layout Solution
+\begin_inset Graphics
+	filename convex_hull_brute_time_graph.png
+	width 90text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Solution
+Here are some plots showing the brute force algorithm got the same results
+ as the gift-wrapping method:
+\end_layout
+
+\begin_layout Solution
+\begin_inset Graphics
+	filename convex_hull_interesting_brute.png
+	lyxscale 50
+	width 70text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Solution
+\begin_inset Graphics
+	filename convex_hull_large_pts_brute.png
+	lyxscale 50
+	width 70text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Solution
+\begin_inset Graphics
+	filename convex_hull_brute_fixed_h_graph.png
+	lyxscale 50
+	width 70text%
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

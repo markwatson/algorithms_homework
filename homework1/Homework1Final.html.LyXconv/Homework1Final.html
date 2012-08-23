@@ -1,0 +1,611 @@
+<div class="flushright" 
+>
+ <span 
+class="pplr8t-x-x-120">Mark Watson</span><br />
+<span 
+class="pplr8t-x-x-120">CS4720</span><br />
+<span 
+class="pplr8t-x-x-120">Homework #1</span><br />
+<span 
+class="pplr8t-x-x-120">09/12/2011</span></div>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title></title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html --> 
+<meta name="src" content="Homework1Final.tex"> 
+<meta name="date" content="2011-09-04 09:26:00"> 
+<link rel="stylesheet" type="text/css" href="Homework1Final.css"> 
+</head><body 
+>
+<!--l. 45--><p class="noindent" ><span class="boxedminipage"> <span 
+class="pplb8t-x-x-120">Problem 1   </span>Sum the following series to obtain closed form solutions.
+      <ul class="itemize1">
+      <li class="itemize">(<span 
+class="pplri8t-x-x-120">a</span>) The series: <span 
+class="pplr7t-x-x-120">1</span><sup><span 
+class="pplr7t-x-x-90">2</span></sup> <span 
+class="zplmr7t-x-x-120">+ (</span><span 
+class="pplr7t-x-x-120">1</span><sup><span 
+class="pplr7t-x-x-90">2</span></sup> <span 
+class="zplmr7t-x-x-120">+ </span><span 
+class="pplr7t-x-x-120">2</span><sup><span 
+class="pplr7t-x-x-90">2</span></sup><span 
+class="zplmr7t-x-x-120">) + (</span><span 
+class="pplr7t-x-x-120">1</span><sup><span 
+class="pplr7t-x-x-90">2</span></sup> <span 
+class="zplmr7t-x-x-120">+ </span><span 
+class="pplr7t-x-x-120">2</span><sup><span 
+class="pplr7t-x-x-90">2</span></sup> <span 
+class="zplmr7t-x-x-120">+ </span><span 
+class="pplr7t-x-x-120">3</span><sup><span 
+class="pplr7t-x-x-90">2</span></sup><span 
+class="zplmr7t-x-x-120">) +</span> <span 
+class="zplmr7m-x-x-120">&#x2026;</span><span style="margin-left:0.3em" class="thinspace"></span> to n terms.
+      </li>
+      <li class="itemize">(b) The series: <span 
+class="pplr7t-x-x-120">4 </span><span 
+class="zplmr7t-x-x-120">+ </span><span 
+class="pplr7t-x-x-120">44 </span><span 
+class="zplmr7t-x-x-120">+ </span><span 
+class="pplr7t-x-x-120">444 </span><span 
+class="zplmr7t-x-x-120">+</span> <span 
+class="zplmr7m-x-x-120">&#x2026;</span><span style="margin-left:0.3em" class="thinspace"></span> to n terms.
+      </li>
+      <li class="itemize">(c) The series: <span 
+class="pplr7t-x-x-120">1 </span><span 
+class="zplmr7t-x-x-120">+ </span><span 
+class="pplr7t-x-x-120">4</span><span 
+class="zplmr7m-x-x-120">x </span><span 
+class="zplmr7t-x-x-120">+ </span><span 
+class="pplr7t-x-x-120">12</span><span 
+class="zplmr7m-x-x-120">x</span><sup><span 
+class="pplr7t-x-x-90">2</span></sup> <span 
+class="zplmr7t-x-x-120">+ </span><span 
+class="pplr7t-x-x-120">32</span><span 
+class="zplmr7m-x-x-120">x</span><sup><span 
+class="pplr7t-x-x-90">3</span></sup> <span 
+class="zplmr7t-x-x-120">+</span> <span 
+class="zplmr7m-x-x-120">&#x2026;</span><span style="margin-left:0.3em" class="thinspace"></span> when <span 
+class="pplr7t-x-x-120">0 </span><span 
+class="zplmr7m-x-x-120">&#x003C; x &#x003C;</span> <img 
+src="Homework1Final0x.png" alt="12"  class="frac" align="middle"></li></ul>
+</span>
+   <dl class="trivlist"><dt class="trivlist">
+</dt><dd 
+class="trivlist">(a) Summations for <span 
+class="zplmr7v-x-x-120">&#x2211;</span><sub><span 
+class="zplmr7m-x-x-90">k</span><span 
+class="zplmr7t-x-x-90">=</span><span 
+class="pplr7t-x-x-90">1</span></sub><sup><span 
+class="zplmr7m-x-x-90">n</span></sup><span 
+class="zplmr7m-x-x-120">k</span><sup><span 
+class="pplr7t-x-x-90">2</span></sup>  and<span 
+class="zplmr7v-x-x-120">&#x2211;</span><sub><span 
+class="zplmr7m-x-x-90">k</span><span 
+class="zplmr7t-x-x-90">=</span><span 
+class="pplr7t-x-x-90">1</span></sub><sup><span 
+class="zplmr7m-x-x-90">n</span></sup><span 
+class="zplmr7m-x-x-120">k </span>where taken from page 470 of Levitin&#8217;s
+book.
+<!--l. 57--><p class="noindent" ><div class="eqnarray">
+   <center class="math-display" >
+<img 
+src="Homework1Final1x.png" alt="            2     2   2      2    2    2
+           1 + (1  + 2 ) + (1  + 2  + 3 ) + ...
+=      &#x2211; 1  k2 + &#x2211; 2  k2 + &#x2211; 3   k2 + &#x2211; 4  k2 + ...
+         k= 1       k=1  n    k=k1       k=1
+=                      &#x2211;k= 1&#x2211; j= 1j2
+                  n   1
+=               &#x2211; k= 1[6(k(k+  1)(2k + 1))]
+=               1 &#x2211;n   [(k2 + k)(2k + 1 ))]
+                6 1 k= 1n     3     2
+=                 6 &#x2211; k= 1[2k +  3k +  k]
+=            1[2   n  k3 + 3  n   k2 +   n  k]
+             6  &#x2211; k=1       &#x2211;k= 1     &#x2211; k=1
+=           16[2(&#x2211;nk= 1k)2 + 3&#x2211;nk= 1k2 + &#x2211;nk= 1k]
+        n2(n+1)2
+=   16[2(----4---)+  36(n(n + 1 )(2n + 1))+  12n(n +  1)]
+    1( 1            1 2       2   1                 )
+=   6  2n(1 + n )+  2n (1+  n)  + 2n (1+ n )(1+  2n)
+                    1-        2
+=                   12n (1+  n) (2 + n)
+" class="math-display" ></center>
+</div>
+
+<!--l. 69--><p class="noindent" >(b) Summation formula 5 was used from Levitin&#8217;s book pg. 470 to solve summations in
+the form <span 
+class="zplmr7v-x-x-120">&#x2211;</span><sub><span 
+class="zplmr7m-x-x-90">k</span><span 
+class="zplmr7t-x-x-90">=</span><span 
+class="pplr7t-x-x-90">0</span></sub><sup><span 
+class="zplmr7m-x-x-90">n</span></sup><span 
+class="pplr7t-x-x-120">10</span><sup><span 
+class="zplmr7m-x-x-90">k</span></sup>.
+<!--l. 72--><p class="indent" >   <div class="eqnarray">
+   <center class="math-display" >
+<img 
+src="Homework1Final2x.png" alt="      4+  44+  444+  ...
+=   4(1 + 11 + 111 + ...)
+         n    k
+=    4 &#x2211; k= 1&#x2211; j=11 0(j-1)
+          n     k-1   j
+=      4 &#x2211;k= 1&#x2211; j= 0 1 0
+          n  10(k-1)+1-1
+=     4 &#x2211; k= 1   10-1
+=       4&#x2211;n    10k - 1
+        9  k=1
+=   49(&#x2211;nk=1 10k - &#x2211;nk= 11)
+       4   n     k
+=      9(&#x2211; k=11 0 - n )
+=   4((&#x2211;nk=01 0k)- 1 - n )
+    9     n+1
+=    49((1010--1-1)-  1-  n)
+      4 10n+1--1
+=     9(   9   -  1-  n)
+       4 10n+1-1-9--9n
+=      9(      9      )
+=    481(10n+ 1 - 10 - 9n )
+" class="math-display" ></center>
+</div>
+<!--l. 89--><p class="indent" >
+
+<!--l. 89--><p class="indent" >   (c) The series can be expressed as summation.
+<!--l. 91--><p class="indent" >   <div class="eqnarray">
+   <center class="math-display" >
+<img 
+src="Homework1Final3x.png" alt="    1 + 4x + 12x 2 + 3 2x3 + &#x22C5;&#x22C5;&#x22C5;+ n 2n-1xn -1 when 0 &#x003C; x &#x003C;  1-
+                                                            2
+=               &#x2211;n    k2k-1xk- 1
+                  k=n1       k-1
+=                &#x2211; k=1k(2x )
+" class="math-display" ></center>
+</div>
+<!--l. 98--><p class="indent" >   Subtracting <span 
+class="zplmr7t-x-x-120">(</span><span 
+class="pplr7t-x-x-120">2</span><span 
+class="zplmr7m-x-x-120">x</span><span 
+class="zplmr7t-x-x-120">) </span>times series from the original series to find the sum:
+<!--l. 101--><p class="indent" >   <div class="eqnarray">
+   <center class="math-display" >
+<img 
+src="Homework1Final4x.png" alt="                            2      3       4
+        S   =  1 + 4x +  12x  + 32x  + 80x  + ...
+  - (2x)S   =       2x + 8x 2 + 24x 3 + 64x4 + ...
+                           2     3      4
+S(1 - 2x )  =  1 + 2x +  4x +  8x  + 16x  + ...
+" class="math-display" ></center>
+</div>
+<!--l. 107--><p class="indent" >   Which we can represent as the following sum (we make use of equation 5 from
+Levitin&#8217;s book on page 470 to solve this summation):
+<!--l. 110--><p class="indent" >   <div class="eqnarray">
+
+   <center class="math-display" >
+<img 
+src="Homework1Final5x.png" alt="                n   k k
+S(1-  2x)  =   &#x2211;  2 x
+               k=0
+                n     k
+S(1-  2x)  =   &#x2211;  (2x)
+               k=0
+               (2x )n+1 - 1
+S(1-  2x)  =   --(2x)---1--
+
+               ---(2x)n+1---1---
+        S  =   (1 - 2x)(2x -  1)
+                    n+1
+        S  =   (2x-)------1
+               - (2x - 1 )2
+" class="math-display" ></center>
+</div>
+<!--l. 118--><p class="indent" >
+
+                                                                                 <span 
+class="msam-10x-x-72">&#x25A0;</span></dd></dl>
+<!--l. 120--><p class="noindent" ><span class="boxedminipage"><span 
+class="pplb8t-x-x-120">Problem 2   </span>Show the following by induction:
+      <ul class="itemize1">
+      <li class="itemize">(a) Show that <span 
+class="pplr7t-x-x-120">5</span><sup><span 
+class="pplr7t-x-x-90">2</span><span 
+class="zplmr7m-x-x-90">n</span></sup> <span 
+class="zplmr7t-x-x-120">+ </span><span 
+class="pplr7t-x-x-120">3</span><span 
+class="zplmr7m-x-x-120">n</span><span 
+class="zplmr7y-x-x-120">- </span><span 
+class="pplr7t-x-x-120">1</span>is divisible by 9 for any <span 
+class="zplmr7m-x-x-120">n </span><span 
+class="zplmr7y-x-x-120">&#x2265; </span><span 
+class="pplr7t-x-x-120">1</span>.
+      </li>
+      <li class="itemize">(b) Show that <span 
+class="zplmr7m-x-x-120">n</span><span 
+class="zplmr7t-x-x-120">! </span><span 
+class="zplmr7m-x-x-120">&#x003E; </span><span 
+class="pplr7t-x-x-120">3</span><sup><span 
+class="zplmr7m-x-x-90">n</span></sup> for <span 
+class="zplmr7m-x-x-120">n </span><span 
+class="zplmr7y-x-x-120">&#x2265; </span><span 
+class="pplr7t-x-x-120">7, </span><span 
+class="zplmr7m-x-x-120">n </span><span 
+class="zplmr7y-x-x-120">&#x2208; </span><span 
+class="zplmr7m-x-x-120">N</span>.</li></ul>
+</span>
+   <dl class="trivlist"><dt class="trivlist">
+</dt><dd 
+class="trivlist">(a) We can see the hypothesis holds for the <span 
+class="pplri8t-x-x-120">base case </span>of 1: <span 
+class="pplr7t-x-x-120">5</span><sup><span 
+class="pplr7t-x-x-90">2</span><span 
+class="zplmr7t-x-x-90">(</span><span 
+class="pplr7t-x-x-90">1</span><span 
+class="zplmr7t-x-x-90">)</span></sup> <span 
+class="zplmr7t-x-x-120">+ </span><span 
+class="pplr7t-x-x-120">3</span><span 
+class="zplmr7t-x-x-120">(</span><span 
+class="pplr7t-x-x-120">1</span><span 
+class="zplmr7t-x-x-120">) </span><span 
+class="zplmr7y-x-x-120">- </span><span 
+class="pplr7t-x-x-120">1  </span><span 
+class="zplmr7t-x-x-120">= </span><span 
+class="pplr7t-x-x-120">27</span>,
+which is divisible by 9. To show the <span 
+class="pplri8t-x-x-120">induction step</span>, Let <span 
+class="zplmr7m-x-x-120">f</span><span 
+class="zplmr7t-x-x-120">(</span><span 
+class="zplmr7m-x-x-120">n</span><span 
+class="zplmr7t-x-x-120">) = </span><span 
+class="pplr7t-x-x-120">5</span><sup><span 
+class="pplr7t-x-x-90">2</span><span 
+class="zplmr7m-x-x-90">n</span></sup> <span 
+class="zplmr7t-x-x-120">+ </span><span 
+class="pplr7t-x-x-120">3</span><span 
+class="zplmr7m-x-x-120">n</span><span 
+class="zplmr7y-x-x-120">- </span><span 
+class="pplr7t-x-x-120">1</span>, and
+assume that <span 
+class="zplmr7m-x-x-120">f</span><span 
+class="zplmr7t-x-x-120">(</span><span 
+class="zplmr7m-x-x-120">k</span><span 
+class="zplmr7t-x-x-120">) </span>is divisible by 9. Then, we need to show that <span 
+class="zplmr7m-x-x-120">f</span><span 
+class="zplmr7t-x-x-120">(</span><span 
+class="zplmr7m-x-x-120">k </span><span 
+class="zplmr7t-x-x-120">+ </span><span 
+class="pplr7t-x-x-120">1</span><span 
+class="zplmr7t-x-x-120">) </span><span 
+class="zplmr7y-x-x-120">-</span><span 
+class="zplmr7m-x-x-120">f</span><span 
+class="zplmr7t-x-x-120">(</span><span 
+class="zplmr7m-x-x-120">k</span><span 
+class="zplmr7t-x-x-120">) </span>is
+divisible by 9 to show that <span 
+class="zplmr7m-x-x-120">f</span><span 
+class="zplmr7t-x-x-120">(</span><span 
+class="zplmr7m-x-x-120">k </span><span 
+class="zplmr7t-x-x-120">+ </span><span 
+class="pplr7t-x-x-120">1</span><span 
+class="zplmr7t-x-x-120">) </span>is divisible by 9.
+<!--l. 133--><p class="noindent" ><div class="eqnarray">
+   <center class="math-display" >
+<img 
+src="Homework1Final6x.png" alt="    [52(k+ 1) + 3(k + 1) - 1]-  (52k + 3k - 1 )
+                  2k 2        2k
+=               5  5  + 3 - 5
+=               52k(52 - 1) + 3
+=                 25k(24) + 3
+" class="math-display" ></center>
+</div>
+<!--l. 140--><p class="noindent" >Now we need to show that <span 
+class="pplr7t-x-x-120">25</span><sup><span 
+class="zplmr7m-x-x-90">k</span></sup><span 
+class="pplr7t-x-x-120">24 </span><span 
+class="zplmr7t-x-x-120">+ </span><span 
+class="pplr7t-x-x-120">3 </span>is divisible by 9 to show that <span 
+class="zplmr7m-x-x-120">f</span><span 
+class="zplmr7t-x-x-120">(</span><span 
+class="zplmr7m-x-x-120">k </span><span 
+class="zplmr7t-x-x-120">+ </span><span 
+class="pplr7t-x-x-120">1</span><span 
+class="zplmr7t-x-x-120">) </span>is divisible
+by 9, and that our original hypothesis holds.                                                               <span 
+class="msam-10x-x-72">&#x25A0;</span></dd></dl>
+      <ul class="itemize1">
+      <li class="itemize"><span 
+class="pplri8t-x-x-120">Hypothesis</span>: <span 
+class="pplr7t-x-x-120">25</span><sup><span 
+class="zplmr7m-x-x-90">n</span></sup><span 
+class="pplr7t-x-x-120">24 </span><span 
+class="zplmr7t-x-x-120">+ </span><span 
+class="pplr7t-x-x-120">3 </span>is divisible by 9 for all <span 
+class="zplmr7m-x-x-120">n </span><span 
+class="zplmr7y-x-x-120">&#x2265; </span><span 
+class="pplr7t-x-x-120">1</span>
+
+      </li>
+      <li class="itemize"><span 
+class="pplri8t-x-x-120">Base case</span>: <span 
+class="pplr7t-x-x-120">25</span><sup><span 
+class="pplr7t-x-x-90">1</span></sup><span 
+class="pplr7t-x-x-120">24 </span><span 
+class="zplmr7t-x-x-120">+ </span><span 
+class="pplr7t-x-x-120">3 </span><span 
+class="zplmr7t-x-x-120">= </span><span 
+class="pplr7t-x-x-120">603</span>, which is divisible by 9.
+      </li>
+      <li class="itemize"><span 
+class="pplri8t-x-x-120">Induction step</span>: Assume that <span 
+class="pplr7t-x-x-120">25</span><sup><span 
+class="zplmr7m-x-x-90">k</span></sup><span 
+class="pplr7t-x-x-120">24 </span><span 
+class="zplmr7t-x-x-120">+ </span><span 
+class="pplr7t-x-x-120">3 </span>is divisible by 9. Then:</li></ul>
+   <dl class="trivlist"><dt class="trivlist">
+</dt><dd 
+class="trivlist"><div class="eqnarray">
+   <center class="math-display" >
+<img 
+src="Homework1Final7x.png" alt="       k+1              k
+    (25   24 + 3) - (25 2 4+  3)
+=        25k+124 - 25k(2 4)
+         k              k
+=      25 (25)(24) - 25 (2 4)
+=         24(25k)(25 - 1 )
+=            2 5k(576)
+" class="math-display" ></center>
+</div>
+<!--l. 156--><p class="noindent" >Since 576 is divisible by 9, <span 
+class="pplr7t-x-x-120">25</span><sup><span 
+class="zplmr7m-x-x-90">n</span></sup><span 
+class="pplr7t-x-x-120">24 </span><span 
+class="zplmr7t-x-x-120">+ </span><span 
+class="pplr7t-x-x-120">3 </span>is divisible by 9 for all <span 
+class="zplmr7m-x-x-120">n </span><span 
+class="zplmr7y-x-x-120">&#x2265; </span><span 
+class="pplr7t-x-x-120">1</span>, by induction.
+<!--l. 159--><p class="indent" >   Therefore, <span 
+class="pplr7t-x-x-120">5</span><sup><span 
+class="pplr7t-x-x-90">2</span><span 
+class="zplmr7m-x-x-90">n</span></sup> <span 
+class="zplmr7t-x-x-120">+ </span><span 
+class="pplr7t-x-x-120">3</span><span 
+class="zplmr7m-x-x-120">n</span><span 
+class="zplmr7y-x-x-120">- </span><span 
+class="pplr7t-x-x-120">1</span>is divisible by 9 for all <span 
+class="zplmr7m-x-x-120">n </span><span 
+class="zplmr7y-x-x-120">&#x2265; </span><span 
+class="pplr7t-x-x-120">1 </span>by induction.
+<!--l. 161--><p class="indent" >
+
+<!--l. 163--><p class="indent" >   (b)                                                                                                                                   <span 
+class="msam-10x-x-72">&#x25A0;</span></dd></dl>
+      <ul class="itemize1">
+      <li class="itemize"><span 
+class="pplri8t-x-x-120">Hypothesis</span>: <span 
+class="zplmr7m-x-x-120">n</span><span 
+class="zplmr7t-x-x-120">! </span><span 
+class="zplmr7m-x-x-120">&#x003E; </span><span 
+class="pplr7t-x-x-120">3</span><sup><span 
+class="zplmr7m-x-x-90">n</span></sup> for <span 
+class="zplmr7m-x-x-120">n </span><span 
+class="zplmr7y-x-x-120">&#x2265; </span><span 
+class="pplr7t-x-x-120">7,</span> <span style="margin-left:2.66638pt" class="tmspace"></span><span 
+class="zplmr7m-x-x-120">n </span><span 
+class="zplmr7y-x-x-120">&#x2208; </span><span 
+class="zplmr7m-x-x-120">N</span>
+      </li>
+      <li class="itemize"><span 
+class="pplri8t-x-x-120">Base case</span>: <span 
+class="pplr7t-x-x-120">7</span><span 
+class="zplmr7t-x-x-120">! </span><span 
+class="zplmr7m-x-x-120">&#x003E; </span><span 
+class="pplr7t-x-x-120">3</span><sup><span 
+class="pplr7t-x-x-90">7</span></sup> <span 
+class="zplmr7t-x-x-120">= </span><span 
+class="pplr7t-x-x-120">5040 </span><span 
+class="zplmr7m-x-x-120">&#x003E; </span><span 
+class="pplr7t-x-x-120">2187</span>.
+      </li>
+      <li class="itemize"><span 
+class="pplri8t-x-x-120">Induction step</span>: If <span 
+class="zplmr7m-x-x-120">k</span><span 
+class="zplmr7t-x-x-120">! </span><span 
+class="zplmr7m-x-x-120">&#x003E; </span><span 
+class="pplr7t-x-x-120">3</span><sup><span 
+class="zplmr7m-x-x-90">k</span></sup>and <span 
+class="zplmr7m-x-x-120">k </span><span 
+class="zplmr7y-x-x-120">&#x2265; </span><span 
+class="pplr7t-x-x-120">7</span>, then we can show that <span 
+class="zplmr7t-x-x-120">(</span><span 
+class="zplmr7m-x-x-120">k </span><span 
+class="zplmr7t-x-x-120">+ </span><span 
+class="pplr7t-x-x-120">1</span><span 
+class="zplmr7t-x-x-120">)! </span><span 
+class="zplmr7m-x-x-120">&#x003E; </span><span 
+class="pplr7t-x-x-120">3</span><sup><span 
+class="zplmr7m-x-x-90">k</span><span 
+class="zplmr7t-x-x-90">+</span><span 
+class="pplr7t-x-x-90">1</span></sup>
+      also holds: <span 
+class="zplmr7t-x-x-120">(</span><span 
+class="zplmr7m-x-x-120">k </span><span 
+class="zplmr7t-x-x-120">+ </span><span 
+class="pplr7t-x-x-120">1</span><span 
+class="zplmr7t-x-x-120">)! = </span><span 
+class="zplmr7m-x-x-120">k</span><span 
+class="zplmr7t-x-x-120">!(</span><span 
+class="zplmr7m-x-x-120">k </span><span 
+class="zplmr7t-x-x-120">+ </span><span 
+class="pplr7t-x-x-120">1</span><span 
+class="zplmr7t-x-x-120">) </span><span 
+class="zplmr7m-x-x-120">&#x003E; </span><span 
+class="pplr7t-x-x-120">3</span><sup><span 
+class="zplmr7m-x-x-90">k</span></sup><span 
+class="zplmr7t-x-x-120">(</span><span 
+class="zplmr7m-x-x-120">k </span><span 
+class="zplmr7t-x-x-120">+ </span><span 
+class="pplr7t-x-x-120">1</span><span 
+class="zplmr7t-x-x-120">) </span>(since <span 
+class="zplmr7m-x-x-120">k</span><span 
+class="zplmr7t-x-x-120">! </span><span 
+class="zplmr7m-x-x-120">&#x003E; </span><span 
+class="pplr7t-x-x-120">3</span><sup><span 
+class="zplmr7m-x-x-90">k</span></sup>). Next, <span 
+class="pplr7t-x-x-120">3</span><sup><span 
+class="zplmr7m-x-x-90">k</span></sup><span 
+class="zplmr7t-x-x-120">(</span><span 
+class="zplmr7m-x-x-120">k </span><span 
+class="zplmr7t-x-x-120">+ </span><span 
+class="pplr7t-x-x-120">1</span><span 
+class="zplmr7t-x-x-120">) </span><span 
+class="zplmr7m-x-x-120">&#x003E;</span>
+      <span 
+class="pplr7t-x-x-120">3</span><sup><span 
+class="zplmr7m-x-x-90">k</span></sup><span 
+class="pplr7t-x-x-120">3 </span><span 
+class="zplmr7t-x-x-120">= </span><span 
+class="pplr7t-x-x-120">3</span><sup><span 
+class="zplmr7m-x-x-90">k</span><span 
+class="zplmr7t-x-x-90">+</span><span 
+class="pplr7t-x-x-90">1</span></sup>, since <span 
+class="zplmr7m-x-x-120">k </span><span 
+class="zplmr7t-x-x-120">+ </span><span 
+class="pplr7t-x-x-120">1 </span><span 
+class="zplmr7y-x-x-120">&#x2265; </span><span 
+class="pplr7t-x-x-120">8 </span><span 
+class="zplmr7m-x-x-120">&#x003E; </span><span 
+class="pplr7t-x-x-120">3 </span>(<span 
+class="zplmr7m-x-x-120">k &#x003E; </span><span 
+class="pplr7t-x-x-120">7</span>). Therefore, <span 
+class="zplmr7t-x-x-120">(</span><span 
+class="zplmr7m-x-x-120">k </span><span 
+class="zplmr7t-x-x-120">+ </span><span 
+class="pplr7t-x-x-120">1</span><span 
+class="zplmr7t-x-x-120">)! </span><span 
+class="zplmr7m-x-x-120">&#x003E; </span><span 
+class="pplr7t-x-x-120">3</span><sup><span 
+class="zplmr7m-x-x-90">k</span><span 
+class="zplmr7t-x-x-90">+</span><span 
+class="pplr7t-x-x-90">1</span></sup>, and so
+      our hypothesis holds true by induction.</li></ul>
+<!--l. 173--><p class="noindent" ><span class="boxedminipage"><span 
+class="pplb8t-x-x-120">Problem 3   </span>Sequential Search Algorithm
+</span>
+   <dl class="trivlist"><dt class="trivlist">
+</dt><dd 
+class="trivlist">The sequential search algorithm is as follows. A is the list being searched, and x is
+the item we&#8217;re looking for.                                                                                               <span 
+class="msam-10x-x-72">&#x25A0;</span></dd></dl>
+      <dl class="list1"><dt class="list">
+      </dt><dd 
+class="list">
+      <!--l. 177--><p class="noindent" ><span 
+class="ectt-1200">def</span><span 
+class="ectt-1200">&#x00A0;sequential_search(A,</span><span 
+class="ectt-1200">&#x00A0;x):</span>
+           <dl class="list2"><dt class="list">
+           </dt><dd 
+class="list">
+           <!--l. 179--><p class="noindent" ><span 
+class="ectt-1200">for</span><span 
+class="ectt-1200">&#x00A0;i=1</span><span 
+class="ectt-1200">&#x00A0;to</span><span 
+class="ectt-1200">&#x00A0;n</span><span 
+class="ectt-1200">&#x00A0;do</span>
+               <dl class="list3"><dt class="list">
+               </dt><dd 
+class="list">
+               <!--l. 181--><p class="noindent" ><span 
+class="ectt-1200">if</span><span 
+class="ectt-1200">&#x00A0;A[i]</span><span 
+class="ectt-1200">&#x00A0;==</span><span 
+class="ectt-1200">&#x00A0;x</span><span 
+class="ectt-1200">&#x00A0;then</span>
+                   <dl class="list4"><dt class="list">
+                   </dt><dd 
+class="list">
+                   <!--l. 183--><p class="noindent" ><span 
+class="ectt-1200">return</span><span 
+class="ectt-1200">&#x00A0;i</span></dd></dl>
+
+               <!--l. 186--><p class="noindent" ><span 
+class="ectt-1200">endif</span></dd></dl>
+           <!--l. 188--><p class="noindent" ><span 
+class="ectt-1200">endfor</span>
+           <!--l. 190--><p class="noindent" ><span 
+class="ectt-1200">return</span><span 
+class="ectt-1200">&#x00A0;0</span></dd></dl>
+      </dd></dl>
+   <dl class="trivlist"><dt class="trivlist">
+</dt><dd 
+class="trivlist">We  can  analyze  the  algorithm  best,  worst,  and  average  cases  using  simple
+summations and assuming each line of code taks &#8220;1&#8221; time unit to run.
+<!--l. 198--><p class="noindent" ><span 
+class="pplri8t-x-x-120">Best case: </span>In the best case, x is the first elemnt of the list. The run time in this case
+would be: <span 
+class="pplr7t-x-x-120">3 </span>time units, or <span 
+class="zplmr7m-x-x-120">O</span><span 
+class="zplmr7t-x-x-120">(</span><span 
+class="pplr7t-x-x-120">1</span><span 
+class="zplmr7t-x-x-120">)</span>. The best case scenario runs in constant time.
+<!--l. 202--><p class="indent" >   <span 
+class="pplri8t-x-x-120">Worst case: </span>In the worst case, x is the last element of the list. The run time in
+this would be: <span 
+class="zplmr7t-x-x-120">[</span><span 
+class="zplmr7v-x-x-120">&#x2211;</span><sub><span 
+class="zplmr7m-x-x-90">k</span><span 
+class="zplmr7t-x-x-90">=</span><span 
+class="pplr7t-x-x-90">1</span></sub><sup><span 
+class="zplmr7m-x-x-90">n</span></sup><span 
+class="pplr7t-x-x-120">4</span><span 
+class="zplmr7t-x-x-120">] + </span><span 
+class="pplr7t-x-x-120">1</span>, assuming that each loop takes four time units, and
+one additional time unit is needed to return the element. Solving the sum we get:
+<span 
+class="pplr7t-x-x-120">4</span><span 
+class="zplmr7m-x-x-120">n </span><span 
+class="zplmr7t-x-x-120">+ </span><span 
+class="pplr7t-x-x-120">1</span>, or <span 
+class="zplmr7m-x-x-120">O</span><span 
+class="zplmr7t-x-x-120">(</span><span 
+class="zplmr7m-x-x-120">n</span><span 
+class="zplmr7t-x-x-120">)</span>. The worst scenario runs in linear time.
+<!--l. 208--><p class="indent" >   <span 
+class="pplri8t-x-x-120">Average case: </span>In the average case we assume that the list is ordered in some
+normal distribution so that an element has an equal probability of being in any
+part  of  the  list.  The  run  time  for  this  situation  would  be:  <span 
+class="zplmr7t-x-x-120">[</span><span 
+class="zplmr7v-x-x-120">&#x2211;</span><sub><span 
+class="zplmr7m-x-x-90">k</span><span 
+class="zplmr7t-x-x-90">=</span><span 
+class="pplr7t-x-x-90">1</span></sub><sup><span 
+class="zplmr7m-x-x-90">n</span><span 
+class="zplmr7t-x-x-90">/</span><span 
+class="pplr7t-x-x-90">2</span></sup><span 
+class="pplr7t-x-x-120">4</span><span 
+class="zplmr7t-x-x-120">] + </span><span 
+class="pplr7t-x-x-120">1</span>,  and
+solving we get: <img 
+src="Homework1Final8x.png" alt="4n
+ 2"  class="frac" align="middle"> <span 
+class="zplmr7t-x-x-120">+ </span><span 
+class="pplr7t-x-x-120">1 </span><span 
+class="zplmr7t-x-x-120">= </span><span 
+class="pplr7t-x-x-120">2</span><span 
+class="zplmr7m-x-x-120">n </span><span 
+class="zplmr7t-x-x-120">+ </span><span 
+class="pplr7t-x-x-120">1</span>, which is still <span 
+class="zplmr7m-x-x-120">O</span><span 
+class="zplmr7t-x-x-120">(</span><span 
+class="zplmr7m-x-x-120">n</span><span 
+class="zplmr7t-x-x-120">)</span>. The average case also runs in
+linear time.                                                                                                                         <span 
+class="msam-10x-x-72">&#x25A0;</span></dd></dl>
+    
+</body></html> 
+
+
+

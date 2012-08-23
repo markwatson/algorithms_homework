@@ -1,0 +1,1153 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass hmcpset
+\begin_preamble
+% info for header block in upper right hand corner
+\name{Mark Watson}
+\class{CS 4720}
+\assignment{Homework \#2}
+\duedate{10/06/2011}
+\end_preamble
+\options boxed, margin=1in
+\use_default_options false
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 12
+\spacing single
+\use_hyperref false
+\papersize letterpaper
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Problem
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+[Problem 1]
+\end_layout
+
+\end_inset
+
+ Solve the following recurrence relations using any method you like.
+ Assume that 
+\begin_inset Formula $T(n)$
+\end_inset
+
+ is a constant for 
+\begin_inset Formula $n\leq2$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Problem
+(a) 
+\begin_inset Formula $T(n)=\sqrt{n}\ T(\ \sqrt{n}\ )+n$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Problem
+(b) 
+\begin_inset Formula $T(n)=2T(\frac{n}{2})+\frac{n}{log(n)}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Problem
+(c) 
+\begin_inset Formula $T(n)=3T(\frac{n}{2})+nlog(n)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Solution
+(a) We will first write out the recurrence:
+\end_layout
+
+\begin_layout Solution
+\begin_inset Formula 
+\begin{eqnarray*}
+T(n)= & n^{\frac{1}{2}}T(n^{\frac{1}{2}})+n & if\ n>2\\
+T(n)= & d & if\ n=2,1,0
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Solution
+We can then solve it using back substitution:
+\end_layout
+
+\begin_layout Solution
+\begin_inset Formula 
+\begin{eqnarray*}
+T(n)= & n^{\frac{1}{2}}T(n^{\frac{1}{2}})+n\\
+= & n^{\frac{1}{2}}[n^{\frac{1}{4}}T(n^{\frac{1}{4}})+n^{\frac{1}{2}}]+n\\
+= & n^{\frac{3}{4}}T(n^{\frac{1}{4}})+2n\\
+= & n^{\frac{3}{4}}[n^{\frac{1}{8}}T(n^{\frac{1}{8}})+n^{\frac{1}{4}}]+2n\\
+= & n^{\frac{7}{8}}T(n^{\frac{1}{8}})+3n\\
+\vdots & \vdots\\
+= & n^{\frac{2^{k}-1}{2^{k}}}T(n^{\frac{1}{2^{k}}})+kn\\
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Solution
+Then we can assume 
+\begin_inset Formula $n^{\frac{1}{2^{k}}}=2$
+\end_inset
+
+, which we can use to find 
+\begin_inset Formula $n$
+\end_inset
+
+ and 
+\begin_inset Formula $k$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Solution
+\begin_inset Formula 
+\begin{eqnarray*}
+(n^{\frac{1}{2^{k}}})^{\frac{2^{k}}{1}} & = & 2^{2^{k}}\\
+n & = & 2^{2^{k}}\\
+k & = & log_{2}(log_{2}(n))\\
+2^{k} & = & log_{2}(n)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Solution
+We find the solution to be:
+\end_layout
+
+\begin_layout Solution
+\begin_inset Formula 
+\begin{eqnarray*}
+T(n) & = & n^{\frac{(log_{2}n)-1}{log_{2}n}}d+nlog_{2}(log_{2}(n))\\
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Solution
+(b) Rewrite the recurrence:
+\end_layout
+
+\begin_layout Solution
+\begin_inset Formula 
+\begin{eqnarray*}
+T(n)= & 2T(\frac{n}{2})+\frac{n}{log(n)} & if\ n>2\\
+T(n)= & d & if\ n=0,1,2
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Solution
+Try to solve it using back-substitution:
+\end_layout
+
+\begin_layout Solution
+\begin_inset Formula 
+\begin{eqnarray*}
+T(n)= & 2T(\frac{n}{2})+\frac{n}{log(n)}\\
+= & 2[2T(\frac{n}{2^{2}})+\frac{\frac{n}{2}}{log(\frac{n}{2})}]+\frac{n}{log(n)}\\
+= & 2^{2}T(\frac{n}{2^{2}})+\frac{n}{log(\frac{n}{2})}+\frac{n}{log(n)}\\
+= & 2^{2}[2T(\frac{n}{2^{3}})+\frac{\frac{n}{2^{2}}}{log(\frac{n}{2^{2}})}]+\frac{n}{log(\frac{n}{2})}+\frac{n}{log(n)}\\
+= & 2^{3}T(\frac{n}{8})+\frac{n}{log(\frac{n}{2^{2}})}+\frac{n}{log(\frac{n}{2})}+\frac{n}{log(n)}\\
+= & 2^{3}[2T(\frac{n}{2^{4}})+\frac{n}{2^{3}log(\frac{n}{2^{3}})}]+\frac{n}{log(\frac{n}{2^{2}})}+\frac{n}{log(\frac{n}{2})}+\frac{n}{log(n)}\\
+= & 2^{4}T(\frac{n}{2^{4}})+\frac{n}{log(\frac{n}{2^{3}})}+\frac{n}{log(\frac{n}{2^{2}})}+\frac{n}{log(\frac{n}{2})}+\frac{n}{log(n)}\\
+\vdots & \vdots\\
+= & 2^{k}T(\frac{n}{2^{k}})+\sum_{i=0}^{k-1}\frac{n}{log(\frac{n}{2^{i}})}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Solution
+Now if we assume that 
+\begin_inset Formula $\frac{n}{2^{k}}=2$
+\end_inset
+
+, we can get rid of the 
+\begin_inset Formula $k$
+\end_inset
+
+ by replacing it with n:
+\end_layout
+
+\begin_layout Solution
+\begin_inset Formula 
+\begin{eqnarray*}
+n & = & (2)2^{k}\\
+n & = & 2^{(k+1)}\\
+2^{k} & = & \frac{n}{2}\\
+log(n) & = & (k+1)log_{2}(2)\\
+k & = & (log_{2}(n))-1
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Solution
+Substitute back in to find our solution:
+\end_layout
+
+\begin_layout Solution
+\begin_inset Formula 
+\begin{eqnarray*}
+T(n)= & \frac{n}{2}T(\frac{n}{\frac{n}{2}})+\sum_{i=0}^{(log_{2}n)-2}\frac{n}{log(\frac{n}{2^{i}})}\\
+T(n)= & \frac{n}{2}d+\sum_{i=0}^{(log_{2}n)-2}\frac{n}{log(n)-i(log(2))}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Solution
+At this point I couldn't find a way to solve the sum to get the closed form
+ solution.
+ I could have used the smoothness rule and the master theorem to get the
+ time complexity of the summation to find the time complexity of the recurrence
+ relation, however, the problem only asks for a solution to the recurrence,
+ not the time complexity.
+\end_layout
+
+\begin_layout Solution
+(c) Rewrite the recurrence:
+\end_layout
+
+\begin_layout Solution
+\begin_inset Formula 
+\begin{eqnarray*}
+T(n)= & 3T(\frac{n}{2})+nlog(n) & if\ n>2\\
+T(n)= & d & if\ n=0,1,2
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Solution
+Next, try to solve it using back substitution:
+\end_layout
+
+\begin_layout Solution
+\begin_inset Formula 
+\begin{eqnarray*}
+T(n)= & 3T(\frac{n}{2})+nlog(n)\\
+= & 3[3T(\frac{\frac{n}{2}}{2})+\frac{n}{2}log(\frac{n}{2})]+nlog(n)\\
+= & 3^{2}T(\frac{n}{2^{2}})+\frac{3n}{2}log(\frac{n}{2})+nlog(n)\\
+= & 3^{2}[3T(\frac{n}{2^{3}})+\frac{n}{2^{2}}log(\frac{n}{2^{2}})]+\frac{3n}{2}log(\frac{n}{2})+nlog(n)\\
+= & 3^{3}T(\frac{n}{2^{3}})+\frac{3^{2}n}{2^{2}}log(\frac{n}{2^{2}})+\frac{3n}{2}log(\frac{n}{2})+nlog(n)\\
+\vdots & \vdots\\
+= & 3^{k}T(\frac{n}{2^{k}})+\sum_{i=0}^{k-1}\frac{3^{i}}{2^{i}}nlog(\frac{n}{2^{i}})\\
+= & 3^{k}T(\frac{n}{2^{k}})+\sum_{i=0}^{k-1}(\frac{3}{2})^{i}n[log(n)-i(log(2))]\\
+= & 3^{k}T(\frac{n}{2^{k}})+\sum_{i=0}^{k-1}[(\frac{3}{2})^{i}*n*log(n)]-\sum_{i=0}^{k-1}[(\frac{3}{2})^{i}*n*i(log(2))]\\
+= & 3^{k}T(\frac{n}{2^{k}})+n*log(n)\sum_{i=0}^{k-1}(\frac{3}{2})^{i}-n*log(2)\sum_{i=0}^{k-1}i(\frac{3}{2})^{i}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Solution
+The summations are of standard forms and can be solved using equations:
+\end_layout
+
+\begin_layout Solution
+\begin_inset Formula 
+\begin{eqnarray*}
+= & 3^{k}T(\frac{n}{2^{k}})+n*log(n)\sum_{i=0}^{k-1}(\frac{3}{2})^{i}-n*log(2)\sum_{i=0}^{k-1}i(\frac{3}{2})^{i}\\
+= & 3^{k}T(\frac{n}{2^{k}})+n*log(n)*2(-1+(\frac{3}{2})^{k}-n*log(2)*2^{1-k}(3\ 2^{k}-3^{1+k}+3^{k}k)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Solution
+Now assume 
+\begin_inset Formula $n^{\frac{1}{2^{k}}}=2$
+\end_inset
+
+, which we can use to find 
+\begin_inset Formula $n$
+\end_inset
+
+ and 
+\begin_inset Formula $k$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Solution
+\begin_inset Formula 
+\begin{eqnarray*}
+(n^{\frac{1}{2^{k}}})^{\frac{2^{k}}{1}} & = & 2^{2^{k}}\\
+n & = & 2^{2^{k}}\\
+k & = & log_{2}(log_{2}(n))\\
+2^{k} & = & log_{2}(n)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Solution
+Which can be substituted back in:
+\end_layout
+
+\begin_layout Solution
+\begin_inset Formula 
+\begin{eqnarray*}
+= & 3^{log_{2}(log_{2}(n))}d+n*log(n)*2(-1+(\frac{3}{2})^{log_{2}(log_{2}(n))}-n*log(2)*2^{1-(log_{2}(log_{2}(n)))}\\
+ & (3*2^{(log_{2}(log_{2}(n)))}-3^{1+(log_{2}(log_{2}(n)))}+3^{(log_{2}(log_{2}(n)))}(log_{2}(log_{2}(n))))\\
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Solution
+(The above math is written on two lines, it's not two separate equations.
+ I just ran out of space.)
+\end_layout
+
+\begin_layout Problem
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+[Problem 2]
+\end_layout
+
+\end_inset
+
+ The Traveling Salesman Problem
+\end_layout
+
+\begin_layout Solution
+(a) A brute force solution to the traveling salesman problem enumerates
+ all possible paths, calculates the length of each path, and, finally, finds
+ the shortest path.
+ The algorithm can be described in pseudo-code as follows.
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+main:
+\end_layout
+
+\begin_layout LyX-Code
+  # set the direction
+\end_layout
+
+\begin_layout LyX-Code
+  for i = 0 to n:
+\end_layout
+
+\begin_layout LyX-Code
+    # permutation will now contain a direction
+\end_layout
+
+\begin_layout LyX-Code
+    set direction[i] = -1
+\end_layout
+
+\begin_layout LyX-Code
+  endfor
+\end_layout
+
+\begin_layout LyX-Code
+  # loop through and generate all permutations
+\end_layout
+
+\begin_layout LyX-Code
+  min_length = null
+\end_layout
+
+\begin_layout LyX-Code
+  while have_mobile_elements:
+\end_layout
+
+\begin_layout LyX-Code
+    # find the largest mobile element k
+\end_layout
+
+\begin_layout LyX-Code
+    k = largest_mobile_element
+\end_layout
+
+\begin_layout LyX-Code
+    # swap k and number k points to
+\end_layout
+
+\begin_layout LyX-Code
+    swap(permutation[k], permutation[k + direction[k]])
+\end_layout
+
+\begin_layout LyX-Code
+    swap(direction[k], direction[k + direction[k]])
+\end_layout
+
+\begin_layout LyX-Code
+    # reverse the direction of all the elements that
+\end_layout
+
+\begin_layout LyX-Code
+    # are larger than k
+\end_layout
+
+\begin_layout LyX-Code
+    for i = 0 to n:
+\end_layout
+
+\begin_layout LyX-Code
+      if permutations[i] > permutations[k]:
+\end_layout
+
+\begin_layout LyX-Code
+        if direction[i] == -1:
+\end_layout
+
+\begin_layout LyX-Code
+          direction[i] == 1
+\end_layout
+
+\begin_layout LyX-Code
+        else:
+\end_layout
+
+\begin_layout LyX-Code
+          direction[i] == -1
+\end_layout
+
+\begin_layout LyX-Code
+    endfor
+\end_layout
+
+\begin_layout LyX-Code
+    # find out if this path is the shortest
+\end_layout
+
+\begin_layout LyX-Code
+    permutation_length = 0
+\end_layout
+
+\begin_layout LyX-Code
+    for i = 0 to n:
+\end_layout
+
+\begin_layout LyX-Code
+      permutation_length +=
+\end_layout
+
+\begin_layout LyX-Code
+        path_weights[permutation[i]][permutation[i+1]
+\end_layout
+
+\begin_layout LyX-Code
+    endfor
+\end_layout
+
+\begin_layout LyX-Code
+    if permutation_length < min_length:
+\end_layout
+
+\begin_layout LyX-Code
+      min_length = permutation_length
+\end_layout
+
+\begin_layout LyX-Code
+  endwhile
+\end_layout
+
+\begin_layout LyX-Code
+have_mobile_elements:
+\end_layout
+
+\begin_layout LyX-Code
+  have = false
+\end_layout
+
+\begin_layout LyX-Code
+  for i = 0 to n:
+\end_layout
+
+\begin_layout LyX-Code
+    if permutations[i + directions[i]] < permutations[i]:
+\end_layout
+
+\begin_layout LyX-Code
+      have = true
+\end_layout
+
+\begin_layout LyX-Code
+  endfor
+\end_layout
+
+\begin_layout LyX-Code
+  return have
+\end_layout
+
+\begin_layout LyX-Code
+largest_mobile_element:
+\end_layout
+
+\begin_layout LyX-Code
+  max = -1
+\end_layout
+
+\begin_layout LyX-Code
+  for i = 0 to n:
+\end_layout
+
+\begin_layout LyX-Code
+    if permutations[i + directions[i]] < permutations[i]:
+\end_layout
+
+\begin_layout LyX-Code
+      if permutations[i] > permutations[max]:
+\end_layout
+
+\begin_layout LyX-Code
+        max = i
+\end_layout
+
+\begin_layout LyX-Code
+  endfor
+\end_layout
+
+\begin_layout LyX-Code
+  return max
+\end_layout
+
+\end_deeper
+\begin_layout Solution
+The algorithm for finding all permutations is the 
+\emph on
+Johnson-Trotter
+\emph default
+ algorithm.
+ The initial permutation is set to 
+\begin_inset Quotes eld
+\end_inset
+
+permutation
+\begin_inset Quotes erd
+\end_inset
+
+.
+ The 
+\begin_inset Quotes eld
+\end_inset
+
+path_weights
+\begin_inset Quotes erd
+\end_inset
+
+ is assumed to be a two dimensional array of the cost of all nodes going
+ to all other nodes.
+ The first dimension is the start node, and the second dimension is the
+ cost to reach the destination node.
+ The size of the array will be 
+\begin_inset Formula $\sum_{k=0}^{n}(n-1)=\frac{1}{2}(n-1)n$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Solution
+(b) The complexity of the algorithm can be found by analyzing the lines
+ of code.
+ We will assume the number of cities is 
+\begin_inset Quotes eld
+\end_inset
+
+n
+\begin_inset Quotes erd
+\end_inset
+
+, and the while loop will run until all permutations are calculated, which
+ is 
+\begin_inset Formula $n!$
+\end_inset
+
+ times.
+ We aren't summing up each line of code, but rather counting the loops and
+ considering the loop bodies to take some constant time.
+ It would be pointless to sum up each line of code since pseudo-code isn't
+ a good representation of what will actually be implemented based on the
+ implementation language.
+ Also, the pseudo-code above could be optimized, which would change the
+ results with regard to the constant time.
+ Instead, the summation is meant to give a general idea of the time complexity
+ of the algorithm when n is large.
+ 
+\end_layout
+
+\begin_layout Solution
+There is one loop outside of the main loop, and four inside.
+ The summation is as follows:
+\end_layout
+
+\begin_layout Solution
+\begin_inset Formula 
+\begin{eqnarray*}
+ & \sum_{k=0}^{n}C+n!(4\sum_{k=0}^{n}C)\\
+= & \frac{C}{2}(n+1)n+n![\frac{4C}{2}(n+1)n]\\
+= & \frac{C}{2}n^{2}+\frac{C}{2}n+n![2Cn^{2}+2Cn]\\
+= & \frac{C}{2}n^{2}+\frac{C}{2}n+(2Cn^{2})n!+(2Cn)n!
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Solution
+So the time complexity is: 
+\begin_inset Formula $\theta(n^{2}n!)$
+\end_inset
+
+.
+ The 
+\begin_inset Formula $n^{2}$
+\end_inset
+
+ could be as a result of the inefficient pseudo code being used.
+\end_layout
+
+\begin_layout Solution
+(c) The implementation is attached.
+\end_layout
+
+\begin_layout Solution
+(d) I chose to go the simple route and use JSON to save and load data from
+ my program.
+ Since so many languages support this format I felt it was the most convenient
+ for interoperability and ease of implementation.
+\end_layout
+
+\begin_layout Solution
+(e) The graph of the time taken to solve various numbers of cities can be
+ seen below.
+\end_layout
+
+\begin_layout Solution
+\begin_inset Graphics
+	filename brute_force_run_time.png
+	display false
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Solution
+The run time of the algorithm can be seen to have an exponential time complexity
+ as n increases.
+ At low n values it's hard to discern the complexity since the algorithm
+ has a fairly high overhead.
+ To verify that the graph is in fact on the same order of complexity as
+ found by analyzing the algorithm we can look at the graph of 
+\begin_inset Formula $n^{2}n!$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Solution
+\begin_inset Graphics
+	filename n_factorial_value.png
+	display false
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Solution
+We can see that this graph looks very close to the original graph.
+ Since the a-axis has different units the scales will be different, however,
+ the axis on both graphs are linear and so it's valid to compare them visually
+ (neither of the graphs uses a logarithmic scale for the x or y-axis, for
+ example).
+\end_layout
+
+\begin_layout Solution
+(f) The maximum amount of cities I was able to solve on my machine was 13.
+ When I tried to solve a 14 city problem the program ran for a couple days
+ and still didn't find a solution, so I halted it.
+\end_layout
+
+\begin_layout Solution
+(g) The optimal tour for a randomly generated 10-city problem is graphed
+ below.
+ It took 5 seconds to find the optimal solution.
+\end_layout
+
+\begin_layout Solution
+\begin_inset Graphics
+	filename 10_towns.png
+	display false
+	scale 80
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Solution
+(h) The heuristic algorithm I'm using is the 2-opt algorithm.
+ It first generates a random tour, and then optimizes it by trying each
+ two city swap and choosing the one that provides the largest improvement.
+ It runs until it can't find a better way to swap any two cities; converging
+ to the local minimum.
+ The pseudo-code is as follows.
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+# start with a random path
+\end_layout
+
+\begin_layout LyX-Code
+current_path = random_path()
+\end_layout
+
+\begin_layout LyX-Code
+do
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+# find all paths that are shorter than the current
+\end_layout
+
+\begin_layout LyX-Code
+# one by swapping cities
+\end_layout
+
+\begin_layout LyX-Code
+best_paths.clear()
+\end_layout
+
+\begin_layout LyX-Code
+for i to n:
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+for j to n:
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+if i != j:
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+new_path = swap(cities[i], cities[j])
+\end_layout
+
+\begin_layout LyX-Code
+if length(new_path) < length(current_path)
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+best_paths.add(new_path)
+\end_layout
+
+\end_deeper
+\end_deeper
+\end_deeper
+\end_deeper
+\begin_layout LyX-Code
+# find the best path with the most improvement
+\end_layout
+
+\begin_layout LyX-Code
+shortest_best_path
+\end_layout
+
+\begin_layout LyX-Code
+for best in best_paths:
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+if best < shortest_best_path:
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+shortest_best_path = best
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout LyX-Code
+current_path = shortest_best_path
+\end_layout
+
+\end_deeper
+\begin_layout LyX-Code
+# until no more optimizations possible
+\end_layout
+
+\begin_layout LyX-Code
+until best_paths is empty
+\end_layout
+
+\end_deeper
+\begin_layout Solution
+We can analyze the algorithm to some degree, but the actual number of times
+ the loop is run depends on the distances between the cities.
+ The main idea we will note is that for each iteration the algorithm needs
+ to run 
+\begin_inset Formula $\sum_{i=0}^{n}(n-1)=\frac{1}{2}(n-1)n\in\theta(n^{2})$
+\end_inset
+
+, plus iterate through the number of optimizations.
+ The time to iterate through all the optimizations won't change the complexity
+ since it will only add n more loops in the worst case.
+ 
+\end_layout
+
+\begin_layout Solution
+There are two useful comparisons to be made against the brute force algorithm.
+ The first is run time, and the second is tour length.
+\end_layout
+
+\begin_layout Solution
+As far as run time is concerned the 2-Opt solution is much faster.
+ The following graph shows the run time for both methods.
+ It's difficult to compare the times on the a graph with a regular x-axis
+ scale, so the following graph has a logarithmic scale on the x-axis.
+\end_layout
+
+\begin_layout Solution
+\begin_inset Graphics
+	filename brute_force_v_2_opt.png
+	display false
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Solution
+The run times depend on the city locations and so they don't follow a strict
+ curve, however, they are clearly not exponential.
+ The 2-Opt algorithm can quickly solve all the problems that the brute force
+ solution solved.
+\end_layout
+
+\begin_layout Solution
+The other comparison to make is how long the tour made by the 2-Opt algorithm
+ is compared to the optimal solution length.
+ The results are below.
+\end_layout
+
+\begin_layout Solution
+\begin_inset Graphics
+	filename 2opt_path_length_v_optimal_path_length.png
+	display false
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Solution
+The only result that differed a large amount was the thirteen city problem.
+ The results of the 2-Opt method are completely based on geography though,
+ so running again on another thirteen city problem could be more or less
+ accurate then this example.
+\end_layout
+
+\begin_layout Solution
+The results for increasing numbers of cities up to 164 can be seen below.
+ This shows a polynomial growth rate instead of an exponential growth rate.
+\end_layout
+
+\begin_layout Solution
+\begin_inset Graphics
+	filename random_cities_2opt.png
+	display false
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Solution
+(i) I then ran the 2-Opt implementation against the optimal results from
+ the website, and the table below lists the results and the percent difference.
+\end_layout
+
+\begin_layout Solution
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="4">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Name
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Optimal Tour Length
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2-Opt Tour Length
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2-Opt Percent Worse
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+att48
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+33523.71
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+45858.73
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+26.90%
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+dantzig42
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+699.00
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+849.38
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+17.70%
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+p01
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+284.38
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+325.19
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+12.55%
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Solution
+The 2-Opt algorithm results are quite a bit worse than the optimal tours
+ for these datasets.
+\end_layout
+
+\end_body
+\end_document
